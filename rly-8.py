@@ -3,17 +3,6 @@ import time
 import json
 ADDR = ("192.168.0.103", 2000)
 
-'''
-client = socket.create_connection(ADDR)
-cf = client.makefile("r+b", bufsize=0)
-cf.write('{"relay1": "off", "relay2": "off", "relay3": "on", "relay4": "on", "relay5": "on", "relay6":"on","relay7":"on","relay8":"on"}')
-cf.flush()
-values = cf.read(14)
-cf.close()
-client.close()
-print values
-'''
-
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect(ADDR)
 
