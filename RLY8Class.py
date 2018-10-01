@@ -10,8 +10,7 @@ class RLY8:
         self.s.connect(ADDR)
 
         # get name
-        self.s.sendall('{"get":"name"}')
-        self.name = self.returnResponseJSON()['name']
+        self.getName()
 
         # get netconfig
         self.s.sendall('{"get":"netconfig"}')
@@ -27,6 +26,10 @@ class RLY8:
 
         # get relays' status
         self.getRelayStatus()
+
+    def getName(self):
+        self.s.sendall('{"get":"name"}')
+        self.name = self.returnResponseJSON()['name']
 
     def setName(self, name):
         self.s.sendall('{"name":"%s"}' % name)
